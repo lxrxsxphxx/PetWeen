@@ -10,10 +10,6 @@ router = APIRouter(
     tags=["user"]
 )
 
-@router.get("/")
-def get_user():
-    return ["example"]
-
 def get_db():
     db = SessionLocal()
     try:

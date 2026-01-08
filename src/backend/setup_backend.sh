@@ -22,7 +22,4 @@ else
     pip install fastapi uvicorn sqlalchemy
 fi
 
-source venv/bin/activate && uvicorn main:app --reload
-
-echo "done "
-echo "run: uvicorn main:app --reload"
+uvicorn main:app --reload
