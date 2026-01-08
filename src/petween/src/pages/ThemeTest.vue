@@ -1,20 +1,55 @@
 <template>
-    <q-page class="flex flex-center column q-pa-md" style="min-height: 100vh">
-        <h1 class="text-h5 q-mb-md">Theme Test</h1>
-        <div class="q-mb-md flex row" style="gap: 10px;">
+    <q-page class="container flex-center column full-height">
+        <div class="card column theme-test">
+            <h1>Theme Test</h1>
+
+        <!-- Brand colors preview -->
+        <div class="row gap">
             <q-btn color="primary" label="Primary" />
             <q-btn color="secondary" label="Secondary" />
             <q-btn color="accent" label="Accent" />
         </div>
 
-        <div class="flex column" style="gap: 10px;">
-            <q-btn color="primary" label="Toggle Dark/Light" @click="toggleMode"/>
-            <q-btn color="secondary" label="Next Theme" @click="cycleThemes"/>
+        <!-- Actions -->
+        <div class="column gap">
+            <q-btn
+                label="Toggle Dark / Light"
+                @click="theme.toggleMode()"
+            />
+
+        </div>
+
+        <!-- Info -->
+            <p  class="theme-info">
+                Aktives Theme: {{ theme.currentTheme.name }}<br />
+                Mode: {{ theme.currentTheme.mode }}
+            </p>
         </div>
     </q-page>
 </template>
 
 <script setup lang="ts">
-    import { toggleMode, cycleThemes } from 'boot/theme'
+    import { useThemeStore } from 'src/stores/theme-store'
+
+    const theme = useThemeStore()
 </script>
+
+
+<style scoped lang="scss">
+    .theme-test {
+        width: 100%;
+        max-width: 420px;
+        text-align: center;
+    }
+
+    .gap {
+        gap: 0.75rem;
+    }
+
+    .theme-info {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        opacity: 0.75;
+    }
+</style>
 
