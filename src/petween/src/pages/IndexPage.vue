@@ -1,43 +1,56 @@
-<template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+....<template>
+  <q-page class="container column">
+    <PageHeader
+      title="Petween"
+      subtitle="FriendsID: 123456"
+    />
+
+    <section class="section">
+      <h2>Pets</h2>
+      <ScrollerCards>
+
+        <InfoCard
+          v-for="i in 10"
+          :key="i"
+          image="/src/assets/quasar-logo-vertical.svg"
+          title="Friend 1"
+          info1="Dino"
+          info2="Happiness 77%"
+
+        />
+      </ScrollerCards>
+    </section>
+
+    <section class="section">
+      <h2>Albums</h2>
+      <ScrollerCards>
+
+        <InfoCard
+          v-for="i in 10"
+          :key="i"
+          image="/src/assets/quasar-logo-vertical.svg"
+          title="Friend 1"
+          info1="3 Pictures"
+          info2=""
+        />
+      </ScrollerCards>
+    </section>
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import type { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
-
-const todos = ref<Todo[]>([
-  {
-    id: 1,
-    content: 'ct1'
-  },
-  {
-    id: 2,
-    content: 'ct2'
-  },
-  {
-    id: 3,
-    content: 'ct3'
-  },
-  {
-    id: 4,
-    content: 'ct4'
-  },
-  {
-    id: 5,
-    content: 'ct5'
-  }
-]);
-
-const meta = ref<Meta>({
-  totalCount: 1200
-});
+  import PageHeader from 'src/components/layout/PageHeader.vue'
+  import ScrollerCards from 'src/components/ui/ScrollerCards.vue'
+  import InfoCard from 'src/components/ui/InfoCard.vue'
 </script>
+
+<style scoped lang="scss">
+  .section {
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+</style>
