@@ -19,6 +19,18 @@
 
         </div>
 
+        <!-- Theme Picker -->
+        <div class="column gap">
+            <q-btn
+                v-for="t in themes"
+                :key="t.name"
+                outline
+                :label="t.name"
+                @click="theme.setTheme(t)"
+            />
+        </div>
+
+
         <!-- Info -->
             <p  class="theme-info">
                 Aktives Theme: {{ theme.currentTheme.name }}<br />
@@ -30,8 +42,10 @@
 
 <script setup lang="ts">
     import { useThemeStore } from 'src/stores/theme-store'
+    import { allThemes } from 'src/themes/colors'
 
     const theme = useThemeStore()
+    const themes = allThemes
 </script>
 
 
