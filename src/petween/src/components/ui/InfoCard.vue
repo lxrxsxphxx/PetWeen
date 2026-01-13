@@ -1,7 +1,10 @@
 <template>
+    <!-- InfoCard component -->
     <div class="info-card">
+        <!-- image -->
         <img :src="image" alt="" />
 
+        <!-- content -->
         <div class="content">
             <strong>{{ title }}</strong>
             <span>{{ info1 }}</span>
@@ -12,6 +15,17 @@
 
 
 <script setup lang="ts">
+
+/**
+ * short InfoCard component to display an image and some text information
+ *
+ * Props:
+ * - image: string - URL of the image to display at the top of the card
+ * - title: string - Title text displayed prominently on the card
+ * - info1: string - First line of additional information
+ * - info2: string - Second line of additional information
+ */
+
     defineProps<{
         image: string
         title: string
@@ -22,6 +36,7 @@
 
 
 <style scoped lang="scss">
+    /* InfoCard styles */
     .info-card {
         width: 160px;
         min-height: 200px;
@@ -47,7 +62,7 @@
         }
     }
 
-    
+    /* content styles */
     img {
         width: 100%;
         height: 80px;

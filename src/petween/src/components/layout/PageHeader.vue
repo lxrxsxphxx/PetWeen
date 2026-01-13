@@ -1,4 +1,5 @@
 <template>
+    <!-- PageHeader component -->
     <header class="page-header">
         <p class="title"> {{ title }}</p>
         <p class="subtitle">{{ subtitle }}</p>
@@ -7,6 +8,13 @@
 
 
 <script setup lang="ts">
+
+/**
+ * Props:
+ * - title: The main title text to display.
+ * - subtitle: An optional subtitle text to display below the title.
+ */
+
     defineProps<{
         title: string
         subtitle?: string
@@ -15,6 +23,7 @@
 
 
 <style scoped lang="scss">
+    /* Styles for the PageHeader component */
     .page-header {
         margin-top: 2rem;
         text-align: center;

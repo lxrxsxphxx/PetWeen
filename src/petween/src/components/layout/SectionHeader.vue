@@ -1,7 +1,9 @@
 <template>
+    <!-- SectionHeader component -->
     <div class="section-header">
         <h2>{{ title }}</h2>
-        
+
+        <!-- View all button -->
         <q-btn
             v-if="to"
             flat
@@ -14,6 +16,11 @@
 </template>
 
 <script setup lang="ts">
+    /**
+     * Props:
+     * - title: The title of the section
+     * - to: Optional route to navigate to when "View all" is clicked
+     */
     defineProps<{
         title: string
         to?: string
@@ -21,6 +28,7 @@
 </script>
 
 <style scoped lang="scss">
+    /* Styles for SectionHeader component */
     .section-header {
         display: flex;
         align-items: center;
@@ -33,6 +41,7 @@
         margin: 0;
     }
 
+    /* Styles for View all button */
     .view-all {
         font-size: 0.75rem;
         opacity: 0.7;

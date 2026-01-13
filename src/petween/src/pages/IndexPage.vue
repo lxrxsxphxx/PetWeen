@@ -1,10 +1,12 @@
 ....<template>
+  <!-- Mainpage / IndexPage -->
   <q-page class="page">
     <PageHeader
       title="PetWeen"
       subtitle="FriendsID: 123456"
     />
 
+    <!-- Section Pets linked to pets home-->
     <section class="section">
       <SectionHeader
         title="Pets"
@@ -13,6 +15,7 @@
 
       <ScrollerCards>
 
+        <!-- InfoCards for pets (10 dummy cards) -->
         <InfoCard
           v-for="i in 10"
           :key="i"
@@ -25,6 +28,7 @@
       </ScrollerCards>
     </section>
 
+    <!-- Section Albums linked to albums -->
     <section class="section">
       <SectionHeader
         title="Albums"
@@ -33,6 +37,7 @@
 
       <ScrollerCards>
 
+        <!-- InfoCards for albums (10 dummy cards) -->
         <InfoCard
           v-for="i in 10"
           :key="i"
@@ -44,6 +49,7 @@
       </ScrollerCards>
     </section>
     
+    <!-- Add Picture Button -->
     <q-btn
     flat
     dense
@@ -57,6 +63,17 @@
 
 
 <script setup lang="ts">
+
+  /**
+   * Imports
+   * PageHeader: main page header
+   * SectionHeader: section title with optional "view all" button
+   * ScrollerCards: horizontal scrollable card container
+   * InfoCard: individual card component
+   *
+   * no logic needed in this page as it is mostly static content for layout demonstration
+   */
+
   import PageHeader from 'src/components/layout/PageHeader.vue'
   import SectionHeader from 'src/components/layout/SectionHeader.vue'
   import ScrollerCards from 'src/components/ui/ScrollerCards.vue'
@@ -65,6 +82,7 @@
 
 
 <style scoped lang="scss">
+  /* Styles for the main index page layout */
   .page {
   width: 100%;
   max-width: 480px;
@@ -73,6 +91,7 @@
   padding-bottom: 5rem;
   }
 
+  /* Section styles */
   .section-header {
     display: flex;
     align-items: center;
@@ -85,6 +104,7 @@
     margin-bottom: 1.3rem;
   }
 
+  /* Add Picture Button styles */
   .add {
     position: fixed;
     left: 1rem;
