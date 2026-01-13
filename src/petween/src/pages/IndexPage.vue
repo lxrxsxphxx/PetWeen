@@ -43,8 +43,18 @@
         />
       </ScrollerCards>
     </section>
+    
+    <q-btn
+    flat
+    dense
+    class="add"
+    label="add picture"
+    @click="$router.push('/addpicture')"
+    />
+
   </q-page>
 </template>
+
 
 <script setup lang="ts">
   import PageHeader from 'src/components/layout/PageHeader.vue'
@@ -53,12 +63,14 @@
   import InfoCard from 'src/components/ui/InfoCard.vue'
 </script>
 
+
 <style scoped lang="scss">
   .page {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
   padding: 1rem;
+  padding-bottom: 5rem;
   }
 
   .section-header {
@@ -68,19 +80,23 @@
     margin-bottom: 0.5rem;
   }
 
-  .section-header h2 {
-    font-size: 1rem;
-    margin: 0;
-  }
 
   .section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.3rem;
   }
 
-.view-all {
-  font-size: 0.75rem;
-  opacity: 0.7;
-  padding: 0;
-}
+  .add {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+
+    font-size: 1rem;
+    padding: 1rem;
+
+    color: var(--q-text);
+    background: var(--q-accent);
+    border-radius: 30px;
+  }
+
 
 </style>

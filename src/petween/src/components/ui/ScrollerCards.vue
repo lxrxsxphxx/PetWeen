@@ -7,6 +7,7 @@
 
 <script setup lang="ts"></script>
 
+
 <style scoped lang="scss">
     .scroller {
         display: flex;
@@ -22,6 +23,8 @@
         scroll-behavior: smooth;
 
         -webkit-overflow-scrolling: touch;
+
+        scrollbar-width: none;
 
         &::before,
         &::after

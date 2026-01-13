@@ -10,6 +10,7 @@
     </div>
 </template>
 
+
 <script setup lang="ts">
     defineProps<{
         image: string
@@ -19,14 +20,15 @@
     }>()
 </script>
 
+
 <style scoped lang="scss">
     .info-card {
         width: 160px;
         min-height: 200px;
         padding: 0.75rem;
         border-radius: 14px;
-
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background: var(--q-primary);
+        color: var(--q-text);
         
         display: flex;
         flex-direction: column;
@@ -35,15 +37,13 @@
         transition:
             transform 0.2s ease,
             box-shadow 0.2s ease;
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--q-accent);
     }
 
 
     @media (hover: hover) {
         .info-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-            background: rgba(255, 255, 255, 0.08);
         }
     }
 

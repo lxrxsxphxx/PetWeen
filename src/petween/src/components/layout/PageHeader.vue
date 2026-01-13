@@ -1,9 +1,10 @@
 <template>
     <header class="page-header">
-        <h1>{{ title }}</h1>
+        <p class="title"> {{ title }}</p>
         <p class="subtitle">{{ subtitle }}</p>
     </header>
 </template>
+
 
 <script setup lang="ts">
     defineProps<{
@@ -12,10 +13,18 @@
     }>()
 </script>
 
+
 <style scoped lang="scss">
     .page-header {
+        margin-top: 2rem;
         text-align: center;
-        margin-bottom: 1.5rem;
+        font-size: 4rem;
+        margin-bottom: 2rem;
+    }
+    .title {
+        margin: 0;
+        font-size: 2.8rem;
+        font-weight: bold;
     }
 
     .subtitle {

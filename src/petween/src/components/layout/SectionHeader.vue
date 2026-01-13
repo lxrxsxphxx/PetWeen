@@ -29,7 +29,7 @@
     }
 
     h2 {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
         margin: 0;
     }
 
