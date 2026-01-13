@@ -6,17 +6,10 @@
     />
 
     <section class="section">
-      <div class="section-header">
-        <h2>Pets</h2>
-        <q-btn
-          flat
-          dense
-          color="primary"
-          label="View All"
-          class="q-mb-md"
-          @click="$router.push('/pets')"
-        />
-      </div>
+      <SectionHeader
+        title="Pets"
+        to="/pets"
+      />
 
       <ScrollerCards>
 
@@ -33,17 +26,11 @@
     </section>
 
     <section class="section">
-      <div class="section-header">
-        <h2>Albums</h2>
-        <q-btn
-          flat
-          dense
-          color="primary"
-          label="View All"
-          class="q-mb-md"
-          @click="$router.push('/pets')"
-        />
-      </div>
+      <SectionHeader
+        title="Albums"
+        to="/albums"
+      />
+
       <ScrollerCards>
 
         <InfoCard
@@ -61,6 +48,7 @@
 
 <script setup lang="ts">
   import PageHeader from 'src/components/layout/PageHeader.vue'
+  import SectionHeader from 'src/components/layout/SectionHeader.vue'
   import ScrollerCards from 'src/components/ui/ScrollerCards.vue'
   import InfoCard from 'src/components/ui/InfoCard.vue'
 </script>

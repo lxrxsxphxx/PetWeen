@@ -23,8 +23,6 @@
 
         -webkit-overflow-scrolling: touch;
 
-        scrollbar-width: thin;
-
         &::before,
         &::after
         {
