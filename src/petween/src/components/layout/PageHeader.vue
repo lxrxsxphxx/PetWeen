@@ -19,6 +19,7 @@
     }
 
     .subtitle {
+        text-align: left;
         opacity: 0.6;
         font-size: 0.9rem;
     }
