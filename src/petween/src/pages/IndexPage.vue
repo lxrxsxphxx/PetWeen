@@ -1,12 +1,23 @@
 ....<template>
-  <q-page class="container column">
+  <q-page class="page">
     <PageHeader
-      title="Petween"
+      title="PetWeen"
       subtitle="FriendsID: 123456"
     />
 
     <section class="section">
-      <h2>Pets</h2>
+      <div class="section-header">
+        <h2>Pets</h2>
+        <q-btn
+          flat
+          dense
+          color="primary"
+          label="View All"
+          class="q-mb-md"
+          @click="$router.push('/pets')"
+        />
+      </div>
+
       <ScrollerCards>
 
         <InfoCard
@@ -22,7 +33,17 @@
     </section>
 
     <section class="section">
-      <h2>Albums</h2>
+      <div class="section-header">
+        <h2>Albums</h2>
+        <q-btn
+          flat
+          dense
+          color="primary"
+          label="View All"
+          class="q-mb-md"
+          @click="$router.push('/pets')"
+        />
+      </div>
       <ScrollerCards>
 
         <InfoCard
@@ -45,12 +66,33 @@
 </script>
 
 <style scoped lang="scss">
+  .page {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
   .section {
     margin-bottom: 1.5rem;
   }
 
-  h2 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-  }
+.view-all {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  padding: 0;
+}
+
 </style>
