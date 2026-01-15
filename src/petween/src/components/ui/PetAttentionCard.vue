@@ -30,7 +30,7 @@
       >
         <div class="row-left">
           <div class="thumbnail">
-            <img v-if="pet.image" :src="pet.image" alt="" />
+            <img v-if="pet.image" :src="pet.image"/>
           </div>
 
           <div class="texts">
