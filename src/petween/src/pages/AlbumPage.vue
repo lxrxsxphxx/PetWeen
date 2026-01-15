@@ -8,7 +8,7 @@ import PageHeader       from 'src/components/layout/PageHeader.vue'
 const router = useRouter()
 
 // Frontend dummy data
-const pets = ['Krokolilo', 'Froggi', 'Danio']
+const pets = ['Bulki', 'Froggi', 'Danio']
 
 type AlbumEntry = {
   id:       string
@@ -18,10 +18,10 @@ type AlbumEntry = {
 }
 
 const entries = ref<AlbumEntry[]>([
-  {id: '1', petName: 'Krokolilo', date: '15.01.26',image:'src/assets/quasar-logo-vertical.svg'},
+  {id: '1', petName: 'Bulki',     date: '15.01.26',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '2', petName: 'Danio',     date: '10.01.26',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '3', petName: 'Froggi',    date: '03.01.26',image:'src/assets/quasar-logo-vertical.svg'},
-  {id: '4', petName: 'Krokolilo', date: '02.01.26',image:'src/assets/quasar-logo-vertical.svg'},
+  {id: '4', petName: 'Bulki',     date: '02.01.26',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '5', petName: 'Danio',     date: '22.12.25',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '6', petName: 'Froggi',    date: '21.12.25',image:'src/assets/quasar-logo-vertical.svg'},
 ])
