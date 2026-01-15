@@ -7,7 +7,7 @@ import PetAttentionCard from 'src/components/ui/PetAttentionCard.vue'
 
 
 const attentionPets = [
-  {name: 'Krokolilo', owner: 'Monika', image: '/src/assets/Dino.png'},
+  {name: 'Bulki', owner: 'Monika',     image: '/src/assets/Dino.png'},
   {name: 'Danio', owner: 'Sophia, Max',image: '/src/assets/quasar-logo-vertical.svg'},
   {name: 'Rabitto', owner: 'Linus',    image: ''},
   {name: 'Froggi', owner: 'Martin',    image: '/src/assets/Frog.png'},
@@ -15,7 +15,7 @@ const attentionPets = [
 ]
 
 const pets = [
-  {name: 'Krokolilo', owner: 'Monika', image: '/src/assets/Dino.png'},
+  {name: 'Bulki', owner: 'Monika',     image: '/src/assets/Dino.png'},
   {name: 'Danio', owner: 'Sophia',     image: '/src/assets/quasar-logo-vertical.svg'},
   {name: 'Rabitto', owner: 'Linus',    image: '/src/assets/quasar-logo-vertical.svg'},
   {name: 'Froggi', owner: 'Martin',    image: '/src/assets/Frog.png'},
