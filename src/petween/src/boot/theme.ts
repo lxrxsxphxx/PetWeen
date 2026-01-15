@@ -23,7 +23,7 @@ export default boot(() => {
         const theme = store.currentTheme
         Dark.set(theme.mode === 'dark')
 
-        // Body Hintergrund + Text
+        // Body-background + text
         document.body.style.backgroundColor = theme.background
         document.body.style.color = theme.text
         document.documentElement.style.setProperty('--q-primary', theme.primary)
