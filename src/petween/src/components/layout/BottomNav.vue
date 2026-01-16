@@ -36,6 +36,7 @@
         { label: 'Home', icon: 'home', to: '/' },
         { label: 'Pets', icon: 'pets', to: '/petshome' },
         { label: 'Friends', icon: 'group', to: '/friends' },
+        { label: 'Album', icon: 'photo_library', to: '/album' },
         { label: 'Settings', icon: 'settings', to: '/settings' }
     ]
 
