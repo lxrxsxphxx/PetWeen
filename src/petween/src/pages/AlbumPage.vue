@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import {computed, ref}  from 'vue'
-import {useRouter}      from 'vue-router'
+import {computed, ref}        from 'vue'
+import {useRouter}            from 'vue-router'
 
-import AlbumPhotoCard   from 'src/components/ui/AlbumPhotoCard.vue'
-import PageHeader       from 'src/components/layout/PageHeader.vue'
+import AlbumPhotoCard         from 'src/components/ui/AlbumPhotoCard.vue'
+import PageHeader             from 'src/components/layout/PageHeader.vue'
+import AlbumPetFilterDropdown from 'src/components/ui/AlbumPetFilterDropdown.vue'
+
 
 const router = useRouter()
 
@@ -59,19 +61,11 @@ function goBack() {
     </div>
 
     <!-- Pet filter -->
-    <q-select
+    <AlbumPetFilterDropdown
       v-model="selectedPet"
       :options="petOptions"
-      dense
-      outlined
-      class="pet-select"
-      dropdown-icon="expand_more"
-      behavior="menu"
-      menu-anchor="bottom left"
-      menu-self="top left"
-      options-cover
-      popup-content-class="album-pet-menu"
     />
+
 
 
     <!-- Album grid -->
@@ -113,20 +107,6 @@ function goBack() {
   padding-bottom: 1.5rem;
 }
 
-.pet-select {
-  width: 100%;
-  margin: 0rem 0rem 1.1rem 0rem;
-}
-
-.pet-select :deep(.q-field__control) {
-  background: var(--q-accent);
-  border-radius: 10px;
-}
-
-.pet-select :deep(.q-field__control:before) {
-  border: none;
-}
-
 
 
 .grid {
@@ -135,14 +115,4 @@ function goBack() {
   gap: 1.1rem;
 }
 
-</style>
-
-
-<style lang="scss">
-/* QSelect menu has to be global (not scoped) */
-.album-pet-menu {
-  background: var(--q-secondary) !important;
-  color: var(--q-text) !important;
-  border-radius: 10px;
-}
 </style>
