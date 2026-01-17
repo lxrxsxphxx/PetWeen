@@ -4,7 +4,7 @@ import { computed } from 'vue'
 type Props = {
   /** currently selected Pet (v-model) */
   modelValue: string
-  /** Dropdown options (["All pets", "Bulki", ...]) */
+  /** Dropdown options */
   options: string[]
 }
 
