@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import {computed, ref}        from 'vue'
-import {useRouter}            from 'vue-router'
+import {computed, ref}     from 'vue'
+import {useRouter}         from 'vue-router'
 
-import AlbumPhotoCard         from 'src/components/ui/AlbumPhotoCard.vue'
-import PageHeader             from 'src/components/layout/PageHeader.vue'
-import AlbumPetFilterDropdown from 'src/components/ui/AlbumPetFilterDropdown.vue'
+import AlbumPhotoCard      from 'src/components/ui/AlbumPhotoCard.vue'
+import PageHeader          from 'src/components/layout/PageHeader.vue'
+import DropdownMenu        from 'src/components/ui/DropdownMenu.vue'
 
 
 const router = useRouter()
@@ -61,7 +61,7 @@ function goBack() {
     </div>
 
     <!-- Pet filter -->
-    <AlbumPetFilterDropdown
+    <DropdownMenu
       v-model="selectedPet"
       :options="petOptions"
     />
