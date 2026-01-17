@@ -9,7 +9,7 @@ type Props = {
 }
 
 /**
- * v-model Bridge: AlbumPage holds the state, the component emits updates.
+ * v-model Bridge: Parent holds the state, the component emits updates.
  */
 const props = defineProps<Props>()
 const emit = defineEmits<{
