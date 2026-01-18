@@ -395,7 +395,7 @@
   width: 100%;
   
   :deep(.q-field__control) {
-    background: var(--q-text);
+    background: var(--q-background);
     border-radius: 8px;
     color: var(--q-primary);
   }
