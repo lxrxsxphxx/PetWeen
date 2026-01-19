@@ -62,7 +62,8 @@ function goBack() {
 
     <!-- Pet filter -->
     <DropdownMenu
-      v-model="selectedPet"
+      :value="selectedPet"
+      @petSelect="selectedPet=$event"
       :options="petOptions"
     />
 

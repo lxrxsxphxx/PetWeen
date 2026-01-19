@@ -3,7 +3,7 @@ import { computed } from 'vue'
 
 type Props = {
   /** currently selected Pet (v-model) */
-  modelValue: string
+  value: string
   /** Dropdown options */
   options: string[]
 }
@@ -13,18 +13,15 @@ type Props = {
  */
 const props = defineProps<Props>()
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string): void
+  (e: 'petSelect', value: string): void
 }>()
 
-const model = computed({
-  get: () => props.modelValue,
-  set: (value: string) => emit('update:modelValue', value),
-})
 </script>
 
 <template>
   <q-select
-    v-model="model"
+    :model-value="value"
+    @update:model-value="emit('petSelect', $event)"
     :options="options"
     dense
     outlined
@@ -52,14 +49,5 @@ const model = computed({
 
 .options-to-filter :deep(.q-field__control:before) {
   border: none;
-}
-</style>
-
-<style lang="scss">
-/* Dropdown menü has to be global(Quasar renders the menu outside of the component) */
-.dropdown-select {
-  background: var(--q-secondary) !important;
-  color: var(--q-text) !important;
-  border-radius: 10px;
 }
 </style>
