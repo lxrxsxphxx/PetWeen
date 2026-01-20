@@ -12,11 +12,11 @@
     <section class="section">
         <SectionHeader title="Add friend" />
         <q-btn
-        unelevated
-        color="primary"
-        icon="add"
-        class="button_add"
-        @click="router.push('/add-friend_pet')"
+            unelevated
+            color="primary"
+            icon="add"
+            class="button_add"
+            @click="router.push('/add-friend_pet')"
         />
     </section>
 
@@ -26,6 +26,7 @@
             title="choose pet type"
         />
 
+        <!-- Dropdown Menu for pet selection -->
         <DropdownMenu
             :value="petOptions"
             @petSelect="petOptions=$event"
@@ -33,19 +34,36 @@
         />
     </section>
 
+    <!-- Pet Preview and Customization -->
     <section
         class="preview-section"
         :class="{ expanded: customizationMode }"
     >
+    <!-- Color Picker (only in customization mode) -->
         <div
             v-if="!customizationMode"
             class="color-picker"
         >
-            <q-btn round size="md" color="red" @click="selectedColor = 'red'" />
-            <q-btn round size="md" color="blue" @click="selectedColor = 'blue'" />
-            <q-btn round size="md" color="green" @click="selectedColor = 'green'" />
+            <q-btn 
+                round size="md" 
+                color="red" 
+                @click="selectedColor = 'red'" 
+            />
+
+            <q-btn 
+                round size="md" 
+                color="blue" 
+                @click="selectedColor = 'blue'"
+            />
+            
+            <q-btn 
+                round size="md" 
+                color="green" 
+                @click="selectedColor = 'green'" 
+            />
         </div>
 
+        <!-- Pet Preview Box -->
         <div
             class="pet-preview"
             :style="{ borderColor: selectedColor }"
@@ -57,20 +75,20 @@
 
 
     <!-- Actions -->
-    <div class="actions">
-
-        <!-- before confirm colours -->
-        <template v-if="!customizationMode">
-
+        <div class="btn-action">
             <q-btn
                 color="primary"
-                label="Confirm"
-                @click="customizationMode = true"
+                class="action-btn"
+                :label="customizationMode ? 'Finish Adoption' : 'Confirm'"
+                @click="handlePrimaryAction"
             />
-        </template>
+        </div>
+    
 
-        <!-- after confirm sliders-->
-        <template v-else>
+
+        <!-- after confirm-->
+        <!-- Slider for customization -->
+        <template v-if="customizationMode">
             <div class="slider">
                 <div class="slider-header">
                     <span class="label">Size</span>
@@ -86,8 +104,7 @@
                 />
 
                 <div class="slider-header">
-                    <span class="label">chonky</span>
-                    
+                    <span class="label">chonky</span>     
                 </div>
 
                 <q-slider
@@ -100,39 +117,36 @@
 
             </div>
 
-            <q-btn
-                color="primary"
-                label="Finish Adoption"
-                class="q-mt-md"
-                @click="$router.push('/care')"
-            />
         </template>
-
-    </div>
-
 </q-page>
 </template>
 
 
 
 <script setup lang="ts">
+
     import { ref } from 'vue'
     import { useRouter } from 'vue-router'
     //import DropdownMenu from 'src/components/DropdownMenu.vue'
     import PageHeader from 'src/components/layout/PageHeader.vue'
     import SectionHeader from 'src/components/layout/SectionHeader.vue'
 
-    const petType = ref<string | null>(null)
+    const selectedPet = ref<string | null>(null)
     const customizationMode = ref(false)
     const selectedColor = ref('grey')
     const router = useRouter()
 
-    // Slider Values
+    // Slider Values in the middle
     const size = ref(50)
-    const chonky = ref(70)
+    const chonky = ref(50)
 
     const petOptions = ['Frog', 'Cat', 'Dino']
 
+    /**
+     * Handles the back button click.
+     *  If in customization mode, exits customization mode.
+     *  Otherwise, navigates back to the previous page.
+     */
     function handleBack() {
         if (customizationMode.value) {
             customizationMode.value = false
@@ -140,18 +154,26 @@
         router.back()
     }
 
+    /**
+     * Handles the primary action button click.
+     *  If not in customization mode, enters customization mode.
+     *  If already in customization mode, navigates to the care page.
+     */
+    function handlePrimaryAction() {
+        if (!customizationMode.value) {
+            customizationMode.value = true
+        } else {
+            router.push('/care')
+        }
+    }
+
+
 </script>
 
 <style scoped lang="scss">
 
-    .button {
-        width: 30px;
-        height: 30px;
-        margin-top: 0rem;
 
-
-    }
-    
+    // Add Friend Button
     .button_add {
         width: 50px;
         height: 50px;
@@ -167,7 +189,7 @@
     }
 
 
-    //Pet Preview & Color Picker
+    //Pet Preview Section
     .preview-section {
         display: grid;
         grid-template-columns: auto minmax(200px, 1fr);
@@ -208,7 +230,7 @@
             max-width: 200px;
         }
 
-
+    // Sliders
     .slider {
         margin-bottom: 1rem;
 
@@ -222,17 +244,33 @@
 
     }
 
-    .slider-header {
+        .slider-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+    // Action Button Confirm and Finish Adoption
+    .btn-action {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 160px; // knapp über Bottom Nav
+        
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 0.5rem;
+        justify-content: center;
+        padding: 0 1rem;
+        z-index: 10;
     }
 
-    .actions {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+    .action-btn {
+        width: 100%;
+        max-width: 420px;
+        height: 52px;
+        font-size: 1.1rem;
+        border-radius: 14px;
     }
+
 
 </style>
