@@ -2,8 +2,18 @@
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file
 
 import { defineConfig } from '#q-app/wrappers';
+import vue from '@vitejs/plugin-vue';
+import test from 'node:test';
 
 export default defineConfig((/* ctx */) => {
+  plugin: [vue()];
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/test/setup.ts'
+    
+  };
+
   return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
     // preFetch: true,
