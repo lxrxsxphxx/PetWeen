@@ -9,7 +9,9 @@ import SectionHeader    from 'src/components/layout/SectionHeader.vue'
 import ScrollerCards    from 'src/components/ui/ScrollerCards.vue'
 import InfoCard         from 'src/components/ui/InfoCard.vue'
 import PetAttentionCard from 'src/components/ui/PetAttentionCard.vue'
+import { useRouter }    from 'vue-router'
 
+const router = useRouter()
 
 const attentionPets = [
   {name: 'Bulki', owner: 'Monika',     image: '/src/assets/Dino.png'},
@@ -39,7 +41,7 @@ const pets = [
     <PetAttentionCard :pets="attentionPets" />
 
     <section class="section">
-      <SectionHeader title="Pets" to="/pets" />
+      <SectionHeader title="Pets" to="/all-pets" />
 
       <div class="pets-scroller">
         <ScrollerCards>
@@ -54,7 +56,11 @@ const pets = [
         </ScrollerCards>
       </div>
 
-      <q-btn unelevated class="add-btn" label="+ add new pet" />
+      <q-btn 
+        unelevated class="add-btn" 
+        label="+ add new pet" 
+        @click="router.push('/add-pet')"
+      />
     </section>
   </q-page>
 </template>
