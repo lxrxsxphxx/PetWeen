@@ -1,9 +1,8 @@
 <template>
     <!-- PageHeader component -->
     <header class="page-header">
-        <div class="left">
+        <div class="left" v-if="back">
             <q-btn
-                v-if="back"
                 flat
                 dense
                 round
