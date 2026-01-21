@@ -1,7 +1,11 @@
 import { config } from '@vue/test-utils'
 
-config.global.stubs = {
-    'q-btn': true,
-    'q-slider': true,
-    'q-icon': true
-}
+// Stub Quasar components globally
+    config.global.stubs = {
+        Quasar: true,
+        QBtn: true,
+        QIcon: true,
+        ScrollerCards: true,
+        PageHeader: true,
+        SectionHeader: true
+    }
