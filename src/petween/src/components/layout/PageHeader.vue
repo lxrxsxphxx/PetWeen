@@ -57,6 +57,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 1.5rem 1rem;
+        background-color: var(--q-background);
     }
     .left, .right {
         width: 40px; /* Fixed width for alignment */

@@ -14,7 +14,7 @@ import DropdownMenu        from 'src/components/ui/DropdownMenu.vue'
 const router = useRouter()
 
 // Frontend dummy data for options to choose from
-const pets = ['Bulki', 'Froggi', 'Danio']
+const pets = ['Bonki', 'Froggi', 'Danio']
 const ALL_PETS = 'All pets'
 
 type AlbumEntry = {
@@ -26,19 +26,19 @@ type AlbumEntry = {
 
 // Frontend dummy data for pictures
 const entries = reactive<AlbumEntry[]>([
-  {id: '1', petName: 'Bulki',     date: '15.01.26',image:'src/assets/quasar-logo-vertical.svg'},
+  {id: '1', petName: 'Bonki',     date: '15.01.26',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '2', petName: 'Danio',     date: '10.01.26',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '3', petName: 'Froggi',    date: '03.01.26',image:'src/assets/quasar-logo-vertical.svg'},
-  {id: '4', petName: 'Bulki',     date: '02.01.26',image:'src/assets/quasar-logo-vertical.svg'},
+  {id: '4', petName: 'Bonki',     date: '02.01.26',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '5', petName: 'Danio',     date: '22.12.25',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '6', petName: 'Froggi',    date: '21.12.25',image:'src/assets/quasar-logo-vertical.svg'},
-  {id: '7', petName: 'Bulki',     date: '15.01.26',image:'src/assets/quasar-logo-vertical.svg'},
+  {id: '7', petName: 'Bonki',     date: '15.01.26',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '8', petName: 'Danio',     date: '10.01.26',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '9', petName: 'Froggi',    date: '03.01.26',image:'src/assets/quasar-logo-vertical.svg'},
-  {id: '10',petName: 'Bulki',     date: '02.01.26',image:'src/assets/quasar-logo-vertical.svg'},
+  {id: '10',petName: 'Bonki',     date: '02.01.26',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '11',petName: 'Danio',     date: '22.12.25',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '12',petName: 'Froggi',    date: '21.12.25',image:'src/assets/quasar-logo-vertical.svg'},
-  {id: '13',petName: 'Bulki',     date: '02.01.26',image:'src/assets/quasar-logo-vertical.svg'},
+  {id: '13',petName: 'Bonki',     date: '02.01.26',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '14',petName: 'Danio',     date: '22.12.25',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '15',petName: 'Froggi',    date: '21.12.25',image:'src/assets/quasar-logo-vertical.svg'},
 ])
@@ -62,11 +62,13 @@ function goBack() {
 <template>
   <q-page class="page">
     <!-- Top bar (back-button + PageHeader) -->
+    <div class="sticky-header">
       <PageHeader
         back
         @back="router.back()"
         title="Album"
       />
+    </div>
 
     <!-- Pet filter -->
     <DropdownMenu
@@ -99,6 +101,11 @@ function goBack() {
   padding-bottom: 6rem; /* space for BottomNav */
 }
 
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
 .back-btn {
   opacity: 0.9;
