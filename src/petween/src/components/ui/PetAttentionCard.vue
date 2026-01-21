@@ -1,4 +1,7 @@
 <script setup lang="ts">
+/**
+ * Component to list all pets in the needs-attention-card in PetsHomePage
+ */
     type PetAttentionList = {
         name: string
         owner: string

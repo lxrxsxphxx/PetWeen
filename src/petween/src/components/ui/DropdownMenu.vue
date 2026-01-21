@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+/**
+ * Dropdown with customziable otions to choose from
+ */
 
 type Props = {
   /** currently selected Pet (v-model) */

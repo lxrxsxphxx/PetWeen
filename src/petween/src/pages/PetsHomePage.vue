@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * this is the page you will be navigated to, if you press Pets on the 
+ * BottomNavigation or if you press view all on the homepage-sectionheader for pets
+ * 
+ */
 import PageHeader       from 'src/components/layout/PageHeader.vue'
 import SectionHeader    from 'src/components/layout/SectionHeader.vue'
 import ScrollerCards    from 'src/components/ui/ScrollerCards.vue'
