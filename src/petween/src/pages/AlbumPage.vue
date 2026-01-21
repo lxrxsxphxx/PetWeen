@@ -1,4 +1,8 @@
 <script setup lang="ts">
+/**
+ * This Site displays all of the users saved pictures
+ * 
+ */
 import {computed, ref, reactive}     from 'vue'
 import {useRouter}         from 'vue-router'
 
@@ -9,8 +13,9 @@ import DropdownMenu        from 'src/components/ui/DropdownMenu.vue'
 
 const router = useRouter()
 
-// Frontend dummy data
+// Frontend dummy data for options to choose from
 const pets = ['Bulki', 'Froggi', 'Danio']
+const ALL_PETS = 'All pets'
 
 type AlbumEntry = {
   id:       string
@@ -19,6 +24,7 @@ type AlbumEntry = {
   image?:   string
 }
 
+// Frontend dummy data for pictures
 const entries = reactive<AlbumEntry[]>([
   {id: '1', petName: 'Bulki',     date: '15.01.26',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '2', petName: 'Danio',     date: '10.01.26',image:'src/assets/quasar-logo-vertical.svg'},
@@ -28,11 +34,12 @@ const entries = reactive<AlbumEntry[]>([
   {id: '6', petName: 'Froggi',    date: '21.12.25',image:'src/assets/quasar-logo-vertical.svg'},
 ])
 
-const ALL_PETS = 'All pets'
+
 // Filter: only by pet name
 const selectedPet = ref<string>(ALL_PETS)
 const petOptions = computed(() => [ALL_PETS, ...pets])
 
+// returns pictures by pets 
 const filteredEntries = computed(() => {
   if (selectedPet.value === ALL_PETS) return entries
   return entries.filter((e) => e.petName === selectedPet.value)
