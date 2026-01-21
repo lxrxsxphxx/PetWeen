@@ -1,15 +1,3 @@
-<template>
-  <!-- Main Layout Structure -->
-  <q-layout view="lHh Lpr lFf">
-
-    <q-page-container>
-      <router-view />
-    </q-page-container>
-    <BottomNav />
-  
-  </q-layout>
-</template>
-
 <script setup lang="ts">
   /**
    * Main layout component that structures the application with a header, footer, and main content area.
@@ -21,6 +9,22 @@
    */
   import BottomNav from 'src/components/layout/BottomNav.vue';
 </script>
+
+
+<template>
+  <!-- Main Layout Structure -->
+  <q-layout view="lHh Lpr lFf">
+
+    <q-page-container>
+      <q-page>
+        <router-view />
+      </q-page>
+    </q-page-container>
+    <BottomNav />
+  
+  </q-layout>
+</template>
+
 
 <style scoped lang="scss">
     /* Styles for the main index page layout */

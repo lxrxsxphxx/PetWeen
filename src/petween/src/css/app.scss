@@ -147,3 +147,10 @@ button:active {
     padding: 2rem;
   }
 }
+
+// dropdowns
+.dropdown-select {
+  background: var(--q-secondary) !important;
+  color: var(--q-text) !important;
+  border-radius: 10px;
+}
