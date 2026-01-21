@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, ref}     from 'vue'
+import {computed, ref, reactive}     from 'vue'
 import {useRouter}         from 'vue-router'
 
 import AlbumPhotoCard      from 'src/components/ui/AlbumPhotoCard.vue'
@@ -19,7 +19,7 @@ type AlbumEntry = {
   image?:   string
 }
 
-const entries = ref<AlbumEntry[]>([
+const entries = reactive<AlbumEntry[]>([
   {id: '1', petName: 'Bulki',     date: '15.01.26',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '2', petName: 'Danio',     date: '10.01.26',image:'src/assets/quasar-logo-vertical.svg'},
   {id: '3', petName: 'Froggi',    date: '03.01.26',image:'src/assets/quasar-logo-vertical.svg'},
@@ -34,8 +34,8 @@ const selectedPet = ref<string>(ALL_PETS)
 const petOptions = computed(() => [ALL_PETS, ...pets])
 
 const filteredEntries = computed(() => {
-  if (selectedPet.value === ALL_PETS) return entries.value
-  return entries.value.filter((e) => e.petName === selectedPet.value)
+  if (selectedPet.value === ALL_PETS) return entries
+  return entries.filter((e) => e.petName === selectedPet.value)
 })
 
 function goBack() {
