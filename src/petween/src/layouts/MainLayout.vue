@@ -21,3 +21,14 @@
    */
   import BottomNav from 'src/components/layout/BottomNav.vue';
 </script>
+
+<style scoped lang="scss">
+    /* Styles for the main index page layout */
+    .page {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 1rem;
+    padding-bottom: 5rem;
+    }
+  </style>
