@@ -30,8 +30,9 @@ const emit = defineEmits<{
     class="options-to-filter"
     dropdown-icon="expand_more"
     behavior="menu"
-    menu-anchor="bottom left"
+    menu-anchor="top left"
     menu-self="top left"
+    :menu-offset="[0,4]"
     options-cover
     popup-content-class="dropdown-select"
   />

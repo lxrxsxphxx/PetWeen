@@ -28,8 +28,8 @@
 
         <!-- Dropdown Menu for pet selection -->
         <DropdownMenu
-            :value="petOptions"
-            @petSelect="petOptions=$event"
+            :value="selectedPet"
+            @petSelect="selectedPet=$event"
             :options="petOptions"
         />
     </section>
@@ -127,11 +127,10 @@
 
     import { ref } from 'vue'
     import { useRouter } from 'vue-router'
-    //import DropdownMenu from 'src/components/DropdownMenu.vue'
+    import DropdownMenu from 'src/components/ui/DropdownMenu.vue'
     import PageHeader from 'src/components/layout/PageHeader.vue'
     import SectionHeader from 'src/components/layout/SectionHeader.vue'
 
-    const selectedPet = ref<string | null>(null)
     const customizationMode = ref(false)
     const selectedColor = ref('grey')
     const router = useRouter()
@@ -140,6 +139,8 @@
     const size = ref(50)
     const chonky = ref(50)
 
+    // Dropdown Menu Options
+    const selectedPet = ref('Frog')
     const petOptions = ['Frog', 'Cat', 'Dino']
 
     /**
