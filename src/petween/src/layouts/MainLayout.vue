@@ -24,6 +24,8 @@
   
   </q-layout>
 </template>
+
+
 <style scoped lang="scss">
     /* Styles for the main index page layout */
     .page {
