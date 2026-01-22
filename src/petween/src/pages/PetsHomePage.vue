@@ -44,7 +44,7 @@ const router = useRouter()
     <PetAttentionCard :pets="attentionPets" />
 
     <section class="section">
-      <SectionHeader title="Pets" to="/pets/all" />
+      <SectionHeader title="Pets" to="/all-pets" />
 
       <div class="pets-scroller">
         <ScrollerCards>

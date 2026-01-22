@@ -9,7 +9,7 @@ const routes: RouteRecordRaw[] = [
 
       { path: 'petshome', component: () => import('pages/PetsHomePage.vue')},
       { path: 'pets', component: () => import('pages/PetsHomePage.vue') },    // PetsHome with NeedAttentionList
-      { path: 'pets/all', component: () => import('pages/AllPetsPage.vue') }, // view-all pets list
+      { path: 'all-pets', component: () => import('pages/AllPetsPage.vue') }, // view-all pets list
       { path: 'albums', component: () => import('pages/AlbumPage.vue') },
       { path: 'add-pet', component: () => import('pages/AddPet.vue') }
     ],
