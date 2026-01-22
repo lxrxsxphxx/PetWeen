@@ -4,6 +4,8 @@
  * BottomNavigation or if you press view all on the homepage-sectionheader for pets
  * 
  */
+import { useRouter } from 'vue-router'
+
 import PageHeader       from 'src/components/layout/PageHeader.vue'
 import SectionHeader    from 'src/components/layout/SectionHeader.vue'
 import ScrollerCards    from 'src/components/ui/ScrollerCards.vue'
@@ -26,6 +28,9 @@ const pets = [
   {name: 'Froggi', owner: 'Martin',    image: '/src/assets/Frog.png'},
   {name: 'Lavello', owner: 'Lucie',    image: '/src/assets/quasar-logo-vertical.svg'},
 ]
+
+const router = useRouter()
+
 </script>
 
 
@@ -39,7 +44,7 @@ const pets = [
     <PetAttentionCard :pets="attentionPets" />
 
     <section class="section">
-      <SectionHeader title="Pets" to="/pets" />
+      <SectionHeader title="Pets" to="/pets/all" />
 
       <div class="pets-scroller">
         <ScrollerCards>
@@ -54,7 +59,12 @@ const pets = [
         </ScrollerCards>
       </div>
 
-      <q-btn unelevated class="add-btn" label="+ add new pet" />
+      <q-btn 
+        unelevated 
+        class="add-btn" 
+        label="+ add new pet" 
+        @click="router.push('/add-pet')"
+        />
     </section>
   </q-page>
 </template>
