@@ -29,6 +29,7 @@ export default boot(() => {
         document.documentElement.style.setProperty('--q-primary', theme.primary)
         document.documentElement.style.setProperty('--q-secondary', theme.secondary)
         document.documentElement.style.setProperty('--q-accent', theme.accent)
+        document.documentElement.style.setProperty('--q-background', theme.background)
 }
 
 applyTheme()
