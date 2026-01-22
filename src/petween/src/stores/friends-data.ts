@@ -11,11 +11,24 @@
  * the database via an API.
  */
 
+/**
+ * Interface für Freund-Daten
+ */
 export interface FriendData {
   id: string
   name: string
   image: string
   tags: string
+}
+
+/**
+ * Interface für Freund-Anfragen (Friend Requests)
+ */
+export interface FriendRequest {
+  id: string
+  name: string
+  image: string
+  timestamp?: string
 }
 
 // Alle Freunde-Daten
@@ -48,6 +61,12 @@ export const allFriendsData: FriendData[] = [
   {
     id: '658396383951',
     name: 'Friend 5',
+    image: '/src/assets/quasar-logo-vertical.svg',
+    tags: 'Pet 1, Pet 2'
+  },
+  {
+    id: '658396383952',
+    name: 'Friend 6',
     image: '/src/assets/quasar-logo-vertical.svg',
     tags: 'Pet 1, Pet 2'
   }
