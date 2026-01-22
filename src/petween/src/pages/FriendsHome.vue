@@ -8,7 +8,7 @@
       <!-- Abschnitts-Header auf äußerem Container -->
       <div class="section-header">
         <h2 class="section-title">Your Friends</h2>
-        <button class="new-request-link">
+        <button class="new-request-link" @click="goToNewRequest">
           new request
         </button>
       </div>
@@ -52,7 +52,13 @@
 </template>
 
 <script setup lang="ts">
-  // Importe
+  /**
+   * FriendsHome Page Component
+   * 
+   * Zeigt Liste aller Freunde mit Empty-State, wenn keine Freunde vorhanden sind.
+   * Displays list of all friends with empty state when no friends exist.
+   */
+  
   import { computed } from 'vue'
   import { useRouter } from 'vue-router'
   import PageHeader from 'src/components/layout/PageHeader.vue'
@@ -62,23 +68,25 @@
   const friendsStore = useFriendsStore()
   const router = useRouter()
 
-  /**
-   * Navigiert zur AddFriend-Seite
-   * Navigates to the AddFriend page
-   */
+  // Navigiert zur AddFriend-Seite
   const goToAddFriend = () => {
     router.push('/add-friend')
   }
 
+  // Navigiert zur NewRequest-Seite
+  const goToNewRequest = () => {
+    router.push('/new-request')
+  }
+
   /**
-   * Gefilterte Freunde-Liste (ohne gelöschte und blockierte Freunde)
-   * Filtered friends list (excluding deleted and blocked friends)
-   * 
-   * @returns {ComputedRef<FriendData[]>} Liste der angezeigten Freunde
+   * Gefilterte Freunde-Liste (nur akzeptierte, nicht gelöschte und nicht blockierte Freunde).
+   * @returns {ComputedRef<FriendData[]>} Liste der angezeigten Freunde.
    */
   const friends = computed(() => {
     return friendsStore.allFriends.filter(friend => 
-      !friendsStore.isFriendDeleted(friend.id) && !friendsStore.isFriendBlocked(friend.id)
+      friendsStore.acceptedRequests.includes(friend.id) &&
+      !friendsStore.isFriendDeleted(friend.id) && 
+      !friendsStore.isFriendBlocked(friend.id)
     )
   })
 </script>
@@ -89,9 +97,7 @@
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 0 1rem;
-  padding-top: 1.5rem;
-  padding-bottom: 5rem;
+  padding: 0.5rem 1rem calc(2rem + 5.5rem);
   
   /* Seiten-Hintergrund vor Container */
   background: var(--q-background);
@@ -191,15 +197,12 @@
 }
 
 .add-friends-btn {
-  position: fixed;
-  left: 1rem;
-  right: 1rem;
-  bottom: 9rem;   // Abstand zwischen Button und Element darüber
-
-  font-size: 1.2rem;  // Button-Größe mit größerer Schrift und Padding erhöhen
+  width: 100%;
+  max-width: calc(480px - 2rem);
+  margin: 2rem auto 0;
+  font-size: 1.2rem;
   padding: 1rem;
-  min-height: 60px;  // Rechteckhöhe erhöhen
-
+  min-height: 60px;
   color: var(--q-text);
   background: var(--q-primary);
   border-radius: 30px;
@@ -209,6 +212,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  text-transform: none;
 }
 
 .add-icon {
