@@ -53,7 +53,13 @@
 </template>
 
 <script setup lang="ts">
-  // Importe
+  /**
+   * AddFriend Page Component
+   * 
+   * Ermöglicht das Hinzufügen von Freunden über ID-Eingabe oder QR-Code-Scanning.
+   * Enables adding friends via ID input or QR code scanning.
+   */
+  
   import { ref, onMounted, watch } from 'vue'
   import { useRoute, useRouter } from 'vue-router'
   import PageHeader from 'src/components/layout/PageHeader.vue'
@@ -69,12 +75,7 @@
   // Verarbeitungszustand
   const isProcessing = ref(false)
 
-  /**
-   * Verarbeitet Query-Parameter aus der URL
-   * Processes query parameters from the URL
-   * 
-   * Lädt friendId, zeigt Success-Message oder Error-Message basierend auf Query-Parametern
-   */
+  // Verarbeitet Query-Parameter aus der URL
   const handleQueryParams = () => {
     if (route.query.friendId) friendId.value = route.query.friendId as string
     if (route.query.showSuccess === 'true') {
@@ -92,11 +93,8 @@
   watch(() => route.query, handleQueryParams, { deep: true })
 
   /**
-   * Sendet eine Freund-Anfrage für die eingegebene Freund-ID
-   * Sends a friend request for the entered friend ID
-   * 
-   * Validiert die ID (muss numerisch sein) und zeigt entsprechende Nachricht
-   * Validates the ID (must be numeric) and shows appropriate message
+   * Sendet eine Freund-Anfrage für die eingegebene Freund-ID.
+   * Validiert die ID und zeigt entsprechende Erfolgs- oder Fehlermeldung an.
    */
   const sendRequest = () => {
     const id = friendId.value.trim()
@@ -118,10 +116,7 @@
     }, 3000)
   }
 
-  /**
-   * Navigiert zur QR-Code-Scan-Seite
-   * Navigates to the QR code scan page
-   */
+  // Navigiert zur QR-Code-Scan-Seite
   const scanQRCode = () => router.push('/scan-qr-code')
 </script>
 
@@ -131,9 +126,7 @@
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 0 1rem;
-  padding-top: 1.5rem;
-  padding-bottom: 5rem;
+  padding: 0.5rem 1rem calc(2rem + 5.5rem);
   background: var(--q-background);
   min-height: 100vh;
 }
