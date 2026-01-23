@@ -10,7 +10,7 @@
     <section class="section">
       <SectionHeader
         title="Pets"
-        to="/all-pets"
+        to="all-pets"
       />
 
       <ScrollerCards>
