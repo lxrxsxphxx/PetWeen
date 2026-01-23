@@ -11,7 +11,9 @@ import SectionHeader    from 'src/components/layout/SectionHeader.vue'
 import ScrollerCards    from 'src/components/ui/ScrollerCards.vue'
 import InfoCard         from 'src/components/ui/InfoCard.vue'
 import PetAttentionCard from 'src/components/ui/PetAttentionCard.vue'
+import { useRouter }    from 'vue-router'
 
+const router = useRouter()
 
 const attentionPets = [
   {name: 'Bulki', owner: 'Monika',     image: '/src/assets/Dino.png'},

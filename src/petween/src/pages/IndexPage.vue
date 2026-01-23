@@ -23,7 +23,7 @@
           title="Friend 1"
           info1="Dino"
           info2="Happiness 77%"
-
+          @click="$router.push('/carepets/1')"
         />
       </ScrollerCards>
     </section>
@@ -45,6 +45,7 @@
           title="Friend 1"
           info1="3 Pictures"
           info2=""
+          @click="$router.push('/albums/1')"
         />
       </ScrollerCards>
     </section>
