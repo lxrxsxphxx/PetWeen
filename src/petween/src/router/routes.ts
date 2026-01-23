@@ -14,10 +14,7 @@ const routes: RouteRecordRaw[] = [
      { path: 'addpicture', component: () => import('pages/AddPicture.vue') },
      { path: 'send-picture', component: () => import('pages/SendPicture.vue') },
      { path: 'new-request', component: () => import('pages/NewRequest.vue') },
-      { path: 'settings', component: () => import('pages/Settings.vue') }
-
-      { path: '', component: () => import('pages/IndexPage.vue') },
-
+      { path: 'settings', component: () => import('pages/Settings.vue') },
       { path: 'petshome', component: () => import('pages/PetsHomePage.vue')},
       { path: 'pets', component: () => import('pages/PetsHomePage.vue') },    // for "View all" /pets
       { path: 'albums', component: () => import('pages/AlbumPage.vue') },
