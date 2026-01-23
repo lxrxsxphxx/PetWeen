@@ -12,7 +12,7 @@ type PetListItem = {
   id:       number
   name:     string
   owners:   string
-  happiness:string
+  happiness:number
   image?:   string
 }
 
@@ -46,7 +46,7 @@ withDefaults(
           <div class="texts">
             <div class="pet-name">{{ pet.name }}</div>
             <div class="pet-owners">{{ pet.owners }}</div>
-            <div class="pet-happiness">Happiness: {{ pet.happiness }}</div>
+            <div class="pet-happiness">Happiness: {{ pet.happiness }}%</div>
           </div>
         </div>
 

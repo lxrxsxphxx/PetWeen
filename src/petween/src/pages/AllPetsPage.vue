@@ -21,19 +21,19 @@ type PetEntry = {
   id:       number
   name:     string
   owners:   string
-  happiness:string
+  happiness:number
   image?:   string
 }
 
 const pets = reactive<PetEntry[]>([
-  {id: 1, name: 'Krokolilo',  owners: 'Monika, Sophia',   happiness: '73%'},
-  {id: 2, name: 'Danio',      owners: 'Monika, Linus',    happiness: '100%', image: quasarLogo},
-  {id: 3, name: 'Rabitto',    owners: 'Linus',            happiness: '26%'},
-  {id: 4, name: 'Bonki',      owners: 'Monika, Ran',      happiness: '77%'},
-  {id: 5, name: 'Stalori',    owners: 'Monika, Sophia',   happiness: '66%'},
-  {id: 6, name: 'Dextra',     owners: 'Monika, Linus',    happiness: '71%',  image: quasarLogo},
-  {id: 7, name: 'Flusel',     owners: 'Linus',            happiness: '100%'},
-  {id: 8, name: 'shumato',    owners: 'Monika, Ran',      happiness: '96%'},
+  {id: 1, name: 'Krokolilo',  owners: 'Monika, Sophia',   happiness: 75},
+  {id: 2, name: 'Danio',      owners: 'Monika, Linus',    happiness: 75, image: quasarLogo},
+  {id: 3, name: 'Rabitto',    owners: 'Linus',            happiness: 75},
+  {id: 4, name: 'Bonki',      owners: 'Monika, Ran',      happiness: 75},
+  {id: 5, name: 'Stalori',    owners: 'Monika, Sophia',   happiness: 75},
+  {id: 6, name: 'Dextra',     owners: 'Monika, Linus',    happiness: 75,  image: quasarLogo},
+  {id: 7, name: 'Flusel',     owners: 'Linus',            happiness: 75},
+  {id: 8, name: 'shumato',    owners: 'Monika, Ran',      happiness: 75},
 ])
 </script>
 
@@ -46,7 +46,9 @@ const pets = reactive<PetEntry[]>([
     />
 
     <div class="list-area">
-        <AllPetsListCard :pets="pets" />
+        <AllPetsListCard :pets="pets" 
+        @click="router.push(`/take-care`)"
+        />
     </div>
 
     <q-btn

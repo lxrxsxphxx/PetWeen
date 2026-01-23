@@ -41,7 +41,9 @@ const router = useRouter()
       subtitle=""
     />
 
-    <PetAttentionCard :pets="attentionPets" />
+    <PetAttentionCard :pets="attentionPets" 
+    @click="router.push(`/take-care`)"
+    />
 
     <section class="section">
       <SectionHeader title="Pets" to="/all-pets" />
@@ -55,6 +57,7 @@ const router = useRouter()
             :title="pet.name"
             :info1="pet.owner"
             info2=""
+            @click="router.push(`/take-care`)"
           />
         </ScrollerCards>
       </div>
