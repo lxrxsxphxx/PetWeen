@@ -11,7 +11,6 @@ import SectionHeader    from 'src/components/layout/SectionHeader.vue'
 import ScrollerCards    from 'src/components/ui/ScrollerCards.vue'
 import InfoCard         from 'src/components/ui/InfoCard.vue'
 import PetAttentionCard from 'src/components/ui/PetAttentionCard.vue'
-import { useRouter }    from 'vue-router'
 
 const router = useRouter()
 
@@ -30,8 +29,6 @@ const pets = [
   {name: 'Froggi', owner: 'Martin',    image: '/src/assets/Frog.png'},
   {name: 'Lavello', owner: 'Lucie',    image: '/src/assets/quasar-logo-vertical.svg'},
 ]
-
-const router = useRouter()
 
 </script>
 
