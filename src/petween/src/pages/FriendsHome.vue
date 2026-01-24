@@ -100,7 +100,7 @@ function goToFriendSettings(friendId: string, name: string) {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 0.5rem 1rem calc(2rem + 5.5rem);
+  padding: 0.5rem 1rem 7.5rem 1rem;
   background: var(--q-background);
 
   display: flex;
@@ -110,7 +110,6 @@ function goToFriendSettings(friendId: string, name: string) {
 .content {
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 .outer-container {
@@ -119,8 +118,6 @@ function goToFriendSettings(friendId: string, name: string) {
   padding: 0.75rem;
   margin-top: 3rem;
 
-  /* Take the available space above the add button */
-  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -153,13 +150,12 @@ function goToFriendSettings(friendId: string, name: string) {
   background: var(--q-secondary);
   border-radius: 16px;
   overflow: hidden;
-  flex: 1;
   display: flex;
 }
 
 .friends-scroll {
   width: 100%;
-  height: 100%;
+  height: max-content;
 }
 
 .friends-list {
