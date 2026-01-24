@@ -98,18 +98,22 @@ function goToFriendSettings(friendId: string, name: string) {
 <style scoped lang="scss">
 .page {
   width: 100%;
-  max-width: 480px;
+  min-height: 100%;
   margin: 0 auto;
   padding: 0.5rem 1rem 7.5rem 1rem;
   background: var(--q-background);
 
   display: flex;
   flex-direction: column;
+
+  --friends-list-max-height: 590px;
 }
 
 .content {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-height: 0;
 }
 
 .outer-container {
@@ -151,11 +155,15 @@ function goToFriendSettings(friendId: string, name: string) {
   border-radius: 16px;
   overflow: hidden;
   display: flex;
+  max-height: var(--friends-list-max-height);
 }
 
 .friends-scroll {
   width: 100%;
-  height: max-content;
+  /* grow to max height */
+  max-height: var(--friends-list-max-height);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .friends-list {
@@ -193,12 +201,17 @@ function goToFriendSettings(friendId: string, name: string) {
   margin: 0;
 }
 
+.add-button-slot {
+  margin-top: auto;      /* presses the button to the bottom */
+  padding-top: 1.25rem;
+}
+
 .add-friend-btn {
   width: 100%;
   border-radius: 30px;
   padding: 1rem;
-  margin-top: 1rem;
 
+  margin-top: 1rem;
   background: var(--q-accent);
   text-transform: none;
 }
