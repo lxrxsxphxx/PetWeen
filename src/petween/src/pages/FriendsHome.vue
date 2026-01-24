@@ -47,10 +47,10 @@ function goToFriendSettings(friendId: string, name: string) {
           <h1 class="friends-title">Your Friends</h1>
 
           <button 
-          class="new-request-btn" 
-          type="button" 
-          @click="goToNewRequests"> 
-          new request
+            class="new-request-btn" 
+            type="button" 
+            @click="goToNewRequests"> 
+              new request
           </button>
         </header>
 
