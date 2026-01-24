@@ -101,7 +101,11 @@ function handleBack() {
 
 <template>
   <q-page class="page">
-    <PageHeader title="Friend Settings" />
+    <PageHeader 
+      back
+      @back="router.back()"
+      title="Settings" 
+    />
 
     <div class="outer-container">
       <section class="friend-info-section">

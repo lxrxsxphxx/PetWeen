@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref }    from 'vue'
+import { useRouter }        from 'vue-router'
+import { useMessagesStore } from 'src/stores/messages-store'
+import { useThemeStore }    from 'src/stores/theme-store'
+import { allThemes }        from 'src/themes/colors'
+import { useCamera }        from 'src/composables/useCamera'
 
-import PageHeader from 'src/components/layout/PageHeader.vue'
-import ActionButton from 'src/components/ui/ActionButton.vue'
+import PageHeader     from 'src/components/layout/PageHeader.vue'
+import ActionButton   from 'src/components/ui/ActionButton.vue'
 import SuccessMessage from 'src/components/ui/SuccessMessage.vue'
 
-import { useMessagesStore } from 'src/stores/messages-store'
-import { useThemeStore } from 'src/stores/theme-store'
-import { allThemes } from 'src/themes/colors'
-import { useCamera } from 'src/composables/useCamera'
+
+
+const router = useRouter()
 
 const messagesStore = useMessagesStore()
 const themeStore = useThemeStore()
@@ -73,7 +77,11 @@ function handleDeleteData() {
 
 <template>
   <q-page class="page">
-    <PageHeader title="Settings" />
+    <PageHeader 
+      back
+      @back="router.back()"
+      title="Settings" 
+    />
 
     <!-- Account -->
     <div class="settings-section">
@@ -89,9 +97,9 @@ function handleDeleteData() {
         </div>
 
         <ActionButton 
-        icon="edit" 
-        label="Change Name" 
-        @click="showChangeNameDialog = true" 
+          icon="edit" 
+          label="Change Name" 
+          @click="showChangeNameDialog = true" 
         />
 
         <ActionButton
@@ -219,7 +227,7 @@ function handleDeleteData() {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 0.5rem 1rem calc(2rem + 5.5rem);
+  padding: 0.5rem 1rem 7.5rem 1rem;
   background: var(--q-background);
   min-height: 100vh;
 }
