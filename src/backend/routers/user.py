@@ -1,8 +1,14 @@
-from fastapi import APIRouter, Depends
-from sqlalchemy.orm import Session
+from fastapi import APIRouter, Depends, UploadFile, File
+from starlette.staticfiles import StaticFiles
 
-from database import SessionLocal
-from models import User
+from sqlalchemy.orm import Session
+import shutil
+import os
+import uuid
+
+from backend.database import get_db, SessionLocal
+from backend.models.user import User
+from backend.schemas.user import UserCreate, UserOut
 
 
 router = APIRouter(
@@ -10,20 +16,32 @@ router = APIRouter(
     tags=["user"]
 )
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+Upload_DIR = "uploads"
+os.makedirs(Upload_DIR, exist_ok=True)
 
-@router.post("/")
-def create_user(name: str, db: Session = Depends(get_db)):
-    user = User(name=name)
-    db.add(user)
+@router.post("/with-image", response_model=UserOut)
+def create_user_with_image(
+    name: str,
+    image: UploadFile = File(...),
+    db: Session = Depends(get_db)
+):
+    filename = image.filename
+    filepath = os.path.join(Upload_DIR, filename)
+
+
+    with open(filepath, "wb") as f:
+        f.write(image.file.read())
+
+    new_user = User(
+        name=name,
+        profile_image=filepath
+    )
+
+    db.add(new_user)
     db.commit()
-    db.refresh(user)
-    return user
+    db.refresh(new_user)
+
+    return new_user
 
 @router.get("/")
 def list_user(db: Session = Depends(get_db)):
