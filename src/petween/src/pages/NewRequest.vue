@@ -42,7 +42,11 @@ function goToAddFriend() {
 
 <template>
   <q-page class="page">
-    <PageHeader title="New Request" />
+    <PageHeader 
+      back
+      @back="router.back()"
+      title="New Request" 
+    />
 
     <div class="outer-container">
       <section class="requests-section">

@@ -121,7 +121,6 @@ function handleBack() {
         <ActionButton icon="delete" label="Delete Friend" @click="showDeleteDialog = true" />
         <ActionButton icon="block" label="Block Friend" @click="showBlockDialog = true" />
         <ActionButton icon="list" label="Blocked Friends" @click="showBlockListDialog = true" />
-        <ActionButton icon="arrow_back" label="Back" @click="handleBack" />
       </section>
 
       <SuccessMessage

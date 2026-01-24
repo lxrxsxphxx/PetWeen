@@ -98,7 +98,11 @@ onUnmounted(() => {
 
 <template>
   <q-page class="page">
-    <PageHeader title="Scan QR Code" />
+    <PageHeader 
+      back
+      @back="router.back()"
+      title="Scan QRCode" 
+    />
 
     <div class="scanner-container">
       <div class="camera-view">

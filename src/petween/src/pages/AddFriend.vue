@@ -48,7 +48,11 @@ function sendRequest() {
 
 <template>
   <q-page class="page">
-    <PageHeader title="Add Friend" />
+    <PageHeader 
+      back
+      @back="router.back()"
+      title="Add Friend" 
+    />
 
     <div class="outer-container">
       <section class="add-friend-section">
