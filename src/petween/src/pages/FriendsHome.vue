@@ -98,7 +98,6 @@ function goToFriendSettings(friendId: string, name: string) {
 <style scoped lang="scss">
 .page {
   width: 100%;
-  min-height: 100%;
   margin: 0 auto;
   padding: 0.5rem 1rem 7.5rem 1rem;
   background: var(--q-background);
@@ -113,7 +112,7 @@ function goToFriendSettings(friendId: string, name: string) {
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-height: 0;
+  min-height: 926px;
 }
 
 .outer-container {
@@ -211,6 +210,7 @@ function goToFriendSettings(friendId: string, name: string) {
   border-radius: 30px;
   padding: 1rem;
 
+  
   margin-top: 1rem;
   background: var(--q-accent);
   text-transform: none;
