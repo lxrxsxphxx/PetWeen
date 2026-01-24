@@ -81,7 +81,8 @@ function handleClick() {
 .avatar {
   width: 56px;
   height: 56px;
-  border-radius: 50px;
+  border-radius: 10px;
+  background: white;
   object-fit: cover;
   flex-shrink: 0;
 }
