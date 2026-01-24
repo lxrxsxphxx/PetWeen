@@ -112,7 +112,6 @@ function goToFriendSettings(friendId: string, name: string) {
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-height: 926px;
 }
 
 .outer-container {
