@@ -30,6 +30,7 @@
     "@vitest/ui": "^4.0.17",
     "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.4.2",
+    "baseline-browser-mapping": "^2.9.18",
     "jsdom": "^27.4.0",
     "typescript": "^5.9.2",
     "vitest": "^4.0.17"
