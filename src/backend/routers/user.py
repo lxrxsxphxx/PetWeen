@@ -2,9 +2,7 @@ from fastapi import APIRouter, Depends, UploadFile, File
 from starlette.staticfiles import StaticFiles
 
 from sqlalchemy.orm import Session
-import shutil
 import os
-import uuid
 
 from backend.database import get_db, SessionLocal
 from backend.models.user import User
