@@ -20,12 +20,6 @@
         />
     </section>
 
-    <!-- choose pet type -->
-    <section class="section">
-
-
-
-    </section>
 
     <!-- Input for pet name -->
     <section
@@ -34,22 +28,22 @@
     >
         <SectionHeader title="pet name" />
             <q-input
-                v-model="petName"
+                v-model="petPayload.name"
                 placeholder="Enter pet name"
                 outlined
                 dense
                 maxlength="20"
+                class="q-mb-md"
             />
 
         <SectionHeader title="choose pet type"/>
 
         <!-- Dropdown Menu for pet selection -->
             <DropdownMenu
-                :value="selectedPet"
-                @petSelect="selectedPet=$event"
+                :value="petPayload.species"
+                @petSelect="petPayload.species=$event"
                 :options="petOptions"
             />
-
     </section>
 
 
@@ -91,9 +85,35 @@
         </div>
     </section>
 
+        <!-- after confirm-->
+        <!-- Slider for customization -->
+        <section v-if="customizationMode" class="slider">
+                <div class="slider-header">
+                    <span class="label">Size</span>    
+                </div>
 
+                <q-slider
+                    v-model="petPayload.size"
+                    label
+                    label-always
+                    :min="0"
+                    :max="100"
+                />
 
-    <!-- Actions -->
+                <div class="slider-header">
+                    <span class="label">chonky</span>
+                </div>
+
+                <q-slider
+                    v-model="petPayload.chunky"
+                    label
+                    label-always
+                    :min="0"
+                    :max="100"
+                />
+        </section>
+
+            <!-- Actions -->
         <div class="btn-action">
             <q-btn
                 color="primary"
@@ -102,41 +122,7 @@
                 @click="handlePrimaryAction"
             />
         </div>
-    
 
-
-        <!-- after confirm-->
-        <!-- Slider for customization -->
-        <template v-if="customizationMode">
-            <div class="slider">
-                <div class="slider-header">
-                    <span class="label">Size</span>
-                    
-                </div>
-
-                <q-slider
-                    v-model="size"
-                    label
-                    label-always
-                    :min="0"
-                    :max="100"
-                />
-
-                <div class="slider-header">
-                    <span class="label">chonky</span>     
-                </div>
-
-                <q-slider
-                    v-model="chonky"
-                    label
-                    label-always
-                    :min="0"
-                    :max="100"
-                />
-
-            </div>
-
-        </template>
 </q-page>
 </template>
 
@@ -154,23 +140,28 @@
      */
     import { ref } from 'vue'
     import { useRouter } from 'vue-router'
+
     import DropdownMenu from 'src/components/ui/DropdownMenu.vue'
     import PageHeader from 'src/components/layout/PageHeader.vue'
     import SectionHeader from 'src/components/layout/SectionHeader.vue'
+
+    import { createPet as createPetApi } from 'src/services/api'
 
     // State Variables for customization mode and selected options
     const customizationMode = ref(false)
     const selectedColor = ref('grey')
     const router = useRouter()
-    const petName = ref('')
-
-    // Slider Values in the middle
-    const size = ref(50)
-    const chonky = ref(50)
 
     // Dropdown Menu Options
-    const selectedPet = ref('Frog')
     const petOptions = ['Frog', 'Cat', 'Dino']
+
+    const petPayload = ref({
+        name: '',
+        species: 'Frog',
+        size: 50,
+        chunky: 50,
+        owner_ids: [] as number[]
+    })
 
     /**
      * Handles the back button click.
@@ -184,15 +175,25 @@
         router.back()
     }
 
+    async function createPet() {
+        try{
+            petPayload.value.owner_ids = [1]
+            await createPetApi(petPayload.value)
+        } catch (err) {
+            console.error('Pet create failed', err)
+        }
+    }
+
     /**
      * Handles the primary action button click.
      *  If not in customization mode, enters customization mode.
      *  If already in customization mode, navigates to the care page.
      */
-    function handlePrimaryAction() {
+    async function handlePrimaryAction() {
         if (!customizationMode.value) {
             customizationMode.value = true
         } else {
+            await createPet()
             router.push('/care')
         }
     }

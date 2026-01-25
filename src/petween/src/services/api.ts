@@ -7,3 +7,13 @@ export const api = axios.create({
         'Content-Type': 'application/json'
     }
 })
+
+export async function createPet(pet: {
+  name: string
+  species: string
+  size: number
+  chunky: number
+  owner_ids: number[]
+}) {
+  return api.post('/pets', pet)
+}
