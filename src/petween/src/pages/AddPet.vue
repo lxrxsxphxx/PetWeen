@@ -11,6 +11,7 @@
     <!-- add friend -->
     <section class="section">
         <SectionHeader title="Add friend" />
+        <!--
         <q-btn
             unelevated
             color="primary"
@@ -18,6 +19,22 @@
             class="button_add"
             @click="router.push('/add-friend_pet')"
         />
+        -->
+
+
+        <q-select
+            v-model="selectedFriendIds"
+            :options="friendOptions"
+            multiple
+            emit-value
+            map-options
+            use-chips
+            outlined
+            dense
+            placeholder="Select friends (optional)"
+        />
+
+
     </section>
 
 
@@ -138,7 +155,7 @@
      *
      * Logic for handling pet addition and customization.
      */
-    import { ref } from 'vue'
+    import { computed, onMounted, ref } from 'vue'
     import { useRouter } from 'vue-router'
 
     import DropdownMenu from 'src/components/ui/DropdownMenu.vue'
@@ -146,14 +163,19 @@
     import SectionHeader from 'src/components/layout/SectionHeader.vue'
 
     import { createPet as createPetApi } from 'src/services/api'
+    import { useUserStore } from 'src/stores/user'
 
     // State Variables for customization mode and selected options
     const customizationMode = ref(false)
     const selectedColor = ref('grey')
     const router = useRouter()
 
+    const selectedFriendIds = ref<number[]>([])
+
     // Dropdown Menu Options
     const petOptions = ['Frog', 'Cat', 'Dino']
+
+    const userStore = useUserStore()
 
     const petPayload = ref({
         name: '',
@@ -163,6 +185,20 @@
         owner_ids: [] as number[]
     })
 
+
+
+    const friendOptions = computed(() =>
+        userStore.friends
+        .filter(friend => friend.id !== userStore.id)
+        .map(friend => ({
+            label: friend.name,
+            value: friend.id
+        }))
+    )
+
+    onMounted(() => {
+        userStore.loadUser(1)
+    })
     /**
      * Handles the back button click.
      *  If in customization mode, exits customization mode.
@@ -176,9 +212,15 @@
     }
 
     async function createPet() {
+
+        if(!userStore.id){
+            console.error('User not loaded')
+            return
+        }
+
         try{
-            petPayload.value.owner_ids = [1]
             await createPetApi(petPayload.value)
+            await userStore.loadUser(userStore.id)
         } catch (err) {
             console.error('Pet create failed', err)
         }
