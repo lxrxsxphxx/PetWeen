@@ -94,7 +94,13 @@ function handleDeleteData() {
       <div class="section-content account-section-content">
         <div class="friend-id-row">
           <span class="friend-id-text">Friends ID : {{ FRIEND_ID }}</span>
-          <q-btn flat dense class="copy-btn" label="Copy" @click="copyFriendId" />
+          <q-btn 
+            flat 
+            dense 
+            class="copy-btn" 
+            label="Copy" 
+            @click="copyFriendId" 
+          />
         </div>
 
         <p class="friend-name-text">Name : {{ userName }}</p>
@@ -117,17 +123,17 @@ function handleDeleteData() {
     <div class="settings-section">
       <div class="section-header">
         <q-icon 
-        name="dark_mode" 
-        class="section-icon" />
+          name="dark_mode" 
+          class="section-icon" />
         <h3 class="section-title">App Settings</h3>
       </div>
 
       <div class="section-content">
         <div class="theme-selector">
           <ActionButton 
-          :icon="themeModeIcon" 
-          :label="themeModeLabel" 
-          @click="themeStore.toggleMode()" 
+            :icon="themeModeIcon" 
+            :label="themeModeLabel" 
+            @click="themeStore.toggleMode()" 
           />
 
           <div class="theme-select-btn" @click="toggleThemesList">
@@ -196,7 +202,8 @@ function handleDeleteData() {
         <q-card-section>
           <q-input 
           v-model="userName" 
-          outlined placeholder="Enter your name" 
+          outlined 
+          placeholder="Enter your name" 
           class="name-input" 
           />
         </q-card-section>
