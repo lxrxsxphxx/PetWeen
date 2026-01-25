@@ -22,17 +22,36 @@
 
     <!-- choose pet type -->
     <section class="section">
-        <SectionHeader 
-            title="choose pet type"
-        />
+
+
+
+    </section>
+
+    <!-- Input for pet name -->
+    <section
+        v-if="!customizationMode"
+        class="section"
+    >
+        <SectionHeader title="pet name" />
+            <q-input
+                v-model="petName"
+                placeholder="Enter pet name"
+                outlined
+                dense
+                maxlength="20"
+            />
+
+        <SectionHeader title="choose pet type"/>
 
         <!-- Dropdown Menu for pet selection -->
-        <DropdownMenu
-            :value="petOptions"
-            @petSelect="petOptions=$event"
-            :options="petOptions"
-        />
+            <DropdownMenu
+                :value="selectedPet"
+                @petSelect="selectedPet=$event"
+                :options="petOptions"
+            />
+
     </section>
+
 
     <!-- Pet Preview and Customization -->
     <section
@@ -125,21 +144,32 @@
 
 <script setup lang="ts">
 
+    /**
+     * Imports
+     * PageHeader: main page header with back button
+     * SectionHeader: section title component
+     * DropdownMenu: custom dropdown menu for pet selection
+     *
+     * Logic for handling pet addition and customization.
+     */
     import { ref } from 'vue'
     import { useRouter } from 'vue-router'
-    //import DropdownMenu from 'src/components/DropdownMenu.vue'
+    import DropdownMenu from 'src/components/ui/DropdownMenu.vue'
     import PageHeader from 'src/components/layout/PageHeader.vue'
     import SectionHeader from 'src/components/layout/SectionHeader.vue'
 
-    const selectedPet = ref<string | null>(null)
+    // State Variables for customization mode and selected options
     const customizationMode = ref(false)
     const selectedColor = ref('grey')
     const router = useRouter()
+    const petName = ref('')
 
     // Slider Values in the middle
     const size = ref(50)
     const chonky = ref(50)
 
+    // Dropdown Menu Options
+    const selectedPet = ref('Frog')
     const petOptions = ['Frog', 'Cat', 'Dino']
 
     /**
@@ -188,6 +218,9 @@
         margin-bottom: 1rem;
     }
 
+    .section-header {
+        margin-top: 1rem;
+    }
 
     //Pet Preview Section
     .preview-section {
@@ -213,7 +246,7 @@
     /* Pet Preview */
     .pet-preview {
         width: 100%;
-        max-width: 320px;
+        max-width: 250px;
         aspect-ratio: 1 / 1;
         border: 3px dashed;
         border-radius: 12px;
@@ -256,7 +289,7 @@
         position: fixed;
         left: 0;
         right: 0;
-        bottom: 160px; // knapp über Bottom Nav
+        bottom: 130px; // knapp über Bottom Nav
         
         display: flex;
         justify-content: center;
@@ -270,6 +303,16 @@
         height: 52px;
         font-size: 1.1rem;
         border-radius: 14px;
+    }
+
+    :deep(.options-to-filter) {
+        width: 430px;
+        margin: 0 auto;
+    }
+
+    .q-input{
+        border-radius: 10px;
+        margin: 0.7rem;
     }
 
 
