@@ -15,6 +15,8 @@ source venv/bin/activate
 # abhängigkeiten installieren
 pip install --upgrade pip
 
+pip install python-multipart
+
 if [ -f "requirements.txt" ]; then
     pip install -r requirements.txt
 else
