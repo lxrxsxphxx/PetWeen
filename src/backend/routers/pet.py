@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from backend.database import SessionLocal, get_db
+from backend.database import get_db
 from backend.models.pet import Pet
 from backend.schemas.pet import PetCreate, PetOut
 
@@ -13,15 +13,16 @@ router = APIRouter(
 
 @router.post("/", response_model=PetOut)
 def create_pet(pet: PetCreate, db: Session = Depends(get_db)):
-    db_pet = Pet(
+    new_pet = Pet(
         name=pet.name,
         species=pet.species,
         chunky=pet.chunky,
         size=pet.size
     )
 
-    db.add(db_pet)
+    db.add(new_pet)
     db.commit()
-    db.refresh(db_pet)
+    db.refresh(new_pet)
 
-    return db_pet
+    return new_pet
+
