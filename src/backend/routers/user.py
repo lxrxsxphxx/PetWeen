@@ -67,6 +67,25 @@ def add_pet_to_user(
         "message": f"Pet '{pet.name}' added to user '{user.name}'"
     }
 
+from backend.schemas.user import UserOut
+
+@router.post("/users/{user_id}/friend", response_model=UserOut)
+def add_friend(
+    user_id: int,
+    friend_id: int,
+    db: Session = Depends(get_db)
+):
+    user = db.query(User).filter(User.id == user_id).first()
+    friend = db.query(User).filter(User.id == friend_id).first()
+
+    user.friends.append(friend)
+    friend.friends.append(user)
+
+    db.commit()
+    db.refresh(user)
+
+    return user
+
 
 @router.get("/")
 def list_user(db: Session = Depends(get_db)):

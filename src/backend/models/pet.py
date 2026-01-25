@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 
 from backend.database import Base
-from backend.models.pets_user import user_pets
+from backend.models.relas import user_pets
 
 
 class Pet(Base):

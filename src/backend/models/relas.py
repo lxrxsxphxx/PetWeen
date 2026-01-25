@@ -1,4 +1,5 @@
 from sqlalchemy import Table, Column, Integer, ForeignKey
+
 from backend.database import Base
 
 user_pets = Table(
@@ -6,4 +7,11 @@ user_pets = Table(
     Base.metadata,
     Column("user_id", Integer, ForeignKey("users.id"), primary_key=True),
     Column("pet_id", Integer, ForeignKey("pets.id"), primary_key=True),
+)
+
+friendships = Table(
+    "friendships",
+    Base.metadata,
+    Column("user_id", Integer, ForeignKey("users.id"), primary_key=True),
+    Column("friend_id", Integer, ForeignKey("users.id"), primary_key=True),
 )

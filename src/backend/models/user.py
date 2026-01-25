@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 
 from backend.database import Base
-from backend.models.pets_user import user_pets
+from backend.models.relas import user_pets, friendships
 
 class User(Base):
     __tablename__ = "users"
@@ -16,4 +16,12 @@ class User(Base):
         "Pet",
         secondary=user_pets,
         back_populates="owners"
+    )
+
+    friends = relationship(
+        "User",
+        secondary=friendships,
+        primaryjoin=id == friendships.c.user_id,
+        secondaryjoin=id == friendships.c.friend_id,
+        backref="friend_of"
     )
