@@ -91,7 +91,7 @@ function handleDeleteData() {
         <h3 class="section-title">Account</h3>
       </div>
 
-      <div class="section-content account-section-content">
+      <div class="section-content">
         <div class="friend-id-row">
           <span class="friend-id-text">Friends ID : {{ FRIEND_ID }}</span>
           <q-btn 
@@ -272,17 +272,6 @@ function handleDeleteData() {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.account-section-content {
-  :deep(.action-btn) {
-    background: var(--q-accent);
-    color: var(--q-text);
-
-    &:hover {
-      opacity: 0.9;
-    }
-  }
 }
 
 .friend-id-row {
