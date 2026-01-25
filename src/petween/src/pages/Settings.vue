@@ -10,8 +10,6 @@ import PageHeader     from 'src/components/layout/PageHeader.vue'
 import ActionButton   from 'src/components/ui/ActionButton.vue'
 import SuccessMessage from 'src/components/ui/SuccessMessage.vue'
 
-
-
 const router = useRouter()
 
 const messagesStore = useMessagesStore()
@@ -19,8 +17,8 @@ const themeStore = useThemeStore()
 const { readImageFile } = useCamera()
 
 const FRIEND_ID = '658396383947'
+const userName = ref<string>('User')
 
-const userName = ref('User')
 const showChangeNameDialog = ref(false)
 const profilePictureInput = ref<HTMLInputElement | null>(null)
 const showThemes = ref(false)
@@ -43,11 +41,14 @@ async function copyFriendId() {
 }
 
 function saveName() {
+  // Validate name input
   if (!userName.value.trim()) {
     messagesStore.showError('Please enter a valid name')
     return
   }
-
+  // Save the new name
+  userName.value = userName.value.trim()
+  // Show success message
   messagesStore.showSuccess('Name changed successfully!')
   showChangeNameDialog.value = false
 }
@@ -95,6 +96,8 @@ function handleDeleteData() {
           <span class="friend-id-text">Friends ID : {{ FRIEND_ID }}</span>
           <q-btn flat dense class="copy-btn" label="Copy" @click="copyFriendId" />
         </div>
+
+        <p class="friend-name-text">Name : {{ userName }}</p>
 
         <ActionButton 
           icon="edit" 
@@ -200,7 +203,7 @@ function handleDeleteData() {
 
         <q-card-actions class="dialog-actions">
           <q-btn flat label="Cancel" @click="showChangeNameDialog = false" />
-          <q-btn flat label="Save" @click="saveName" />
+          <q-btn flat label="Save" @click="saveName()" />
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -295,6 +298,14 @@ function handleDeleteData() {
   text-transform: none;
   min-height: auto;
 }
+
+.friend-name-text{
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  color: var(--q-text);
+  text-align: center;
+}
+
 
 .delete-data-btn {
   background: var(--q-accent);
