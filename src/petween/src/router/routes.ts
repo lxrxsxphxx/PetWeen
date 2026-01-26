@@ -13,6 +13,17 @@ const routes: RouteRecordRaw[] = [
       { path: 'albums', component: () => import('pages/AlbumPage.vue') },
       { path: 'add-pet', component: () => import('pages/AddPet.vue') },
       { path: 'take-care', component: () => import('pages/takecare.vue')}
+
+      { path: 'addpicture', component: () => import('pages/AddPicture.vue') },
+      { path: 'send-picture', component: () => import('pages/SendPicture.vue') },
+
+      { path: 'friends', component: () => import('pages/FriendsHome.vue') },
+      { path: 'add-friend', component: () => import('pages/AddFriend.vue') },
+      { path: 'scan-qr-code', component: () => import('pages/ScanQRCode.vue') },
+      { path: 'new-request', component: () => import('pages/NewRequest.vue') },
+      { path: 'friend-settings', component: () => import('pages/FriendSettings.vue') },
+
+      { path: 'settings', component: () => import('pages/Settings.vue') },
     ],
   },
 

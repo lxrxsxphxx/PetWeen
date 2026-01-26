@@ -115,7 +115,7 @@
     padding: 1rem;
 
     color: var(--q-text);
-    background: var(--q-accent);
+    background: var(--q-secondary);
     border-radius: 30px;
   }
 

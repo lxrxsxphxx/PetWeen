@@ -92,7 +92,7 @@
     /* Active Navigation Item Styles */
     .nav-item.active {
         opacity: 1;
-        color: var(--q-primary);
+        color: var(--q-secondary);
     }
 
 </style>

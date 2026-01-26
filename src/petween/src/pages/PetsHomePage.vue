@@ -115,7 +115,7 @@ const pets = [
   padding: 1rem;
   margin-top: 1rem;
 
-  background: var(--q-accent);
+  background: var(--q-secondary);
   text-transform: none;
 }
 </style>
