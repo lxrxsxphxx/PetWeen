@@ -83,7 +83,10 @@ onUnmounted(() => {
 
 <template>
   <q-page class="page">
-    <PageHeader title="Add Picture" />
+    <PageHeader 
+      back
+      title="Add Picture" 
+    />
 
     <div class="camera-container">
       <div class="camera-view">
