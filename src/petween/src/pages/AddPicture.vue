@@ -85,6 +85,7 @@ onUnmounted(() => {
   <q-page class="page">
     <PageHeader 
       back
+      @back="router.back()"
       title="Add Picture" 
     />
 
