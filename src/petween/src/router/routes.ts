@@ -12,6 +12,7 @@ const routes: RouteRecordRaw[] = [
       { path: 'all-pets', component: () => import('pages/AllPetsPage.vue') }, // view-all pets list
       { path: 'albums', component: () => import('pages/AlbumPage.vue') },
       { path: 'add-pet', component: () => import('pages/AddPet.vue') },
+      { path: 'take-care', component: () => import('pages/takecare.vue')}
 
       { path: 'addpicture', component: () => import('pages/AddPicture.vue') },
       { path: 'send-picture', component: () => import('pages/SendPicture.vue') },

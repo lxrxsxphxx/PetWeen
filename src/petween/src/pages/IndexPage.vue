@@ -23,7 +23,7 @@
           title="Friend 1"
           info1="Dino"
           info2="Happiness 77%"
-          @click="$router.push('/carepets/1')"
+          @click="$router.push('/take-care')"
         />
       </ScrollerCards>
     </section>
