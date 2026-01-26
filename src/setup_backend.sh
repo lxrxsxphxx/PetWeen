@@ -24,4 +24,4 @@ else
     pip install fastapi uvicorn sqlalchemy
 fi
 
-uvicorn main:app --reload
+uvicorn backend.main:app --reload
