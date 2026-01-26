@@ -113,7 +113,7 @@ function goToAddFriend() {
 }
 
 .outer-container {
-  background: var(--q-primary);
+  background: var(--q-accent);
   border-radius: 15px;
   padding: 0.75rem;
   margin-top: 2rem;
@@ -205,7 +205,7 @@ function goToAddFriend() {
   padding: 1rem;
   min-height: 60px;
   color: var(--q-text);
-  background: var(--q-primary);
+  background: var(--q-accent);
   border-radius: 30px;
   border: none;
   cursor: pointer;
