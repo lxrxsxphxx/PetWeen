@@ -211,7 +211,7 @@ function goToFriendSettings(friendId: string, name: string) {
 
   
   margin-top: 1rem;
-  background: var(--q-accent);
+  background: var(--q-secondary);
   text-transform: none;
 }
 </style>

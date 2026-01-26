@@ -266,7 +266,7 @@ function handleDeleteData() {
 }
 
 .section-content {
-  background: var(--q-accent);
+  background: var(--q-secondary);
   border-radius: 12px;
   padding: 0.5rem;
   display: flex;
@@ -286,7 +286,7 @@ function handleDeleteData() {
 }
 
 .copy-btn {
-  background: var(--q-accent);
+  background: var(--q-secondary);
   color: var(--q-text);
   border-radius: 6px;
   padding: 0.25rem 0.75rem;
@@ -304,7 +304,7 @@ function handleDeleteData() {
 
 
 .delete-data-btn {
-  background: var(--q-accent);
+  background: var(--q-secondary);
   border-radius: 12px;
 }
 
